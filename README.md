@@ -52,26 +52,26 @@ URL: GET /api/movies/award-intervals
 
 Exemplo de Resposta:
 
-json
+json<br/>
 
-{
-  "min": [
-    {
-      "producer": "Producer A",
-      "interval": 1,
-      "previousWin": 2000,
-      "followingWin": 2001
-    }
-  ],
-  "max": [
-    {
-      "producer": "Producer B",
-      "interval": 10,
-      "previousWin": 1990,
-      "followingWin": 2000
-    }
-  ]
-}
+{<br/>
+  "min": [<br/>
+    {<br/>
+      "producer": "Producer A",<br/>
+      "interval": 1,<br/>
+      "previousWin": 2000,<br/>
+      "followingWin": 2001<br/>
+    }<br/>
+  ],<br/>
+  "max": [<br/>
+    {<br/>
+      "producer": "Producer B",<br/>
+      "interval": 10,<br/>
+      "previousWin": 1990,<br/>
+      "followingWin": 2000<br/>
+    }<br/>
+  ]<br/>
+}<br/>
 
 ---
 
