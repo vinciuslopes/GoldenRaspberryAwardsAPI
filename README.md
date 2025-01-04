@@ -39,11 +39,11 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
    dotnet run
 
 2. A aplicação estará disponível no endereço:
-   http://localhost:5000
+   https://localhost:7046 ou http://localhost:5211
 
-3. Acesse a documentação Swagger para interagir com os endpoints:
+4. Acesse a documentação Swagger para interagir com os endpoints:
    ```bash
-   http://localhost:5000/swagger
+   http://localhost:5211/swagger
 ---
 
 ### Endpoints Disponíveis
