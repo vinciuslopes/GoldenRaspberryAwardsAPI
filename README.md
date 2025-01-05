@@ -52,27 +52,26 @@ URL: GET /api/movies/award-intervals
 
 Exemplo de Resposta:
 
-json<br/>
-
-{<br/>
-  "min": [<br/>
-    {<br/>
-      "producer": "Producer A",<br/>
-      "interval": 1,<br/>
-      "previousWin": 2000,<br/>
-      "followingWin": 2001<br/>
-    }<br/>
-  ],<br/>
-  "max": [<br/>
-    {<br/>
-      "producer": "Producer B",<br/>
-      "interval": 10,<br/>
-      "previousWin": 1990,<br/>
-      "followingWin": 2000<br/>
-    }<br/>
-  ]<br/>
-}<br/>
-
+```json
+{
+   "min": [
+      {
+         "producer": "Producer A",
+         "interval": 1,
+         "previousWin": 2000,
+         "followingWin": 2001
+      }
+   ],
+   "max": [
+      {
+         "producer": "Producer B",
+         "interval": 10,
+         "previousWin": 1990,
+         "followingWin": 2000
+      }
+   ]
+}
+```
 ---
 
 ### Como Executar os Testes
@@ -88,8 +87,7 @@ json<br/>
 
 ### Estrutura do Projeto
 
-plaintext
-
+```plaintext
 GoldenRaspberryAPI/
 ├── Controllers/               # Controladores da API
 ├── Data/                      # Banco de dados em memória
@@ -98,14 +96,14 @@ GoldenRaspberryAPI/
 ├── Tests/                     # Testes de integração
 ├── Resources/movielist.csv    # Arquivo CSV com os dados
 └── README.md                  # Instruções do projeto
-
+```
 ---
 
 ### Tecnologias Utilizadas
-   ASP.NET Core Web API<br/>
-   Entity Framework Core (banco de dados em memória)<br/>
-   CsvHelper (leitura de arquivos CSV)<br/>
-   Swagger (documentação da API)
+  - ASP.NET Core Web API<br/>
+  - Entity Framework Core (banco de dados em memória)<br/>
+  - CsvHelper (leitura de arquivos CSV)<br/>
+  - Swagger (documentação da API)
 
 ---
 
@@ -136,6 +134,6 @@ GoldenRaspberryAPI/
 ---
 
 ### Licença
-Este projeto está licenciado sob a MIT License.
+Este projeto está licenciado sob a [MIT License](https://mit-license.org/).
 
 ---
