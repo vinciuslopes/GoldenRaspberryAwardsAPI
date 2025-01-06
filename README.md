@@ -88,13 +88,15 @@ Exemplo de Resposta:
 ### Estrutura do Projeto
 
 ```plaintext
-GoldenRaspberryAPI/
-├── Controllers/               # Controladores da API
-├── Data/                      # Banco de dados em memória
-├── Model/                     # Modelos utilizados no projeto
-├── Services/                  # Lógica de negócio
-├── Tests/                     # Testes de integração
-├── Resources/movielist.csv    # Arquivo CSV com os dados
+GoldenRaspberryAwardsAPI/
+   └── GoldenRaspberryAPI/
+      ├── Controllers/               # Controladores da API
+      ├── Data/                      # Banco de dados em memória
+      ├── Model/                     # Modelos utilizados no projeto
+      ├── Resources/movielist.csv    # Arquivo CSV com os dados
+      ├── Services/                  # Lógica de negócio
+   └── GoldenRaspberryAwardsTests/
+      ├── Resources/movielist.csv    # Arquivo CSV com os dados
 └── README.md                  # Instruções do projeto
 ```
 ---
