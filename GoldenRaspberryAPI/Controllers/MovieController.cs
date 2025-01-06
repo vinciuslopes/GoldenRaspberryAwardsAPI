@@ -1,5 +1,7 @@
-﻿using GoldenRaspberryAPI.Service;
+﻿using GoldenRaspberryAPI.Model;
+using GoldenRaspberryAPI.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace GoldenRaspberryAPI.Controllers
 {
@@ -18,6 +20,13 @@ namespace GoldenRaspberryAPI.Controllers
         public IActionResult GetAwardIntervals()
         {
             var result = _awardIntervalService.GetAwardIntervals();
+            return Ok(result);
+        }
+
+        [HttpGet("all-movies")]
+        public IActionResult GetMovies()
+        {
+            var result = _awardIntervalService.GetMovies();
             return Ok(result);
         }
     }
