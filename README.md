@@ -18,7 +18,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/viniciuslopes/GoldenRaspberryAPI.git
+   git clone https://github.com/viniciusEduaroLopes/GoldenRaspberryAwardsAPI.git
    cd GoldenRaspberryAPI
 
 2. Instale as dependências do projeto:
