@@ -1,0 +1,6 @@
+@GoldenRaspberryAPI_HostAddress = http://localhost:5211
+
+GET {{GoldenRaspberryAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

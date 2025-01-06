@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+*.user
+*.lock.json
+*.suo
+*.userosscache
+*.sln.docstates
+*.DS_Store
