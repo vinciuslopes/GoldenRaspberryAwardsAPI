@@ -60,6 +60,12 @@ Exemplo de Resposta:
          "interval": 1,
          "previousWin": 2000,
          "followingWin": 2001
+      },
+      {
+         "producer": "Producer C",
+         "interval": 2,
+         "previousWin": 2002,
+         "followingWin": 2004
       }
    ],
    "max": [
@@ -68,6 +74,12 @@ Exemplo de Resposta:
          "interval": 10,
          "previousWin": 1990,
          "followingWin": 2000
+      }
+      {
+         "producer": "Producer D",
+         "interval": 12,
+         "previousWin": 1990,
+         "followingWin": 2002
       }
    ]
 }
