@@ -79,7 +79,8 @@ namespace GoldenRaspberryAwardsTests
             // Assert
             Assert.NotNull(result);
             Assert.True(result.Max.Count > 0);
-            Assert.Equal(6, result.Max.First().Interval);
+            Assert.Equal(13, result.Max.First().Interval);
+            Assert.Equal(1, result.Min.First().Interval);
         }
     }
 }

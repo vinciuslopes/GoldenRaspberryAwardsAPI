@@ -1,4 +1,6 @@
-﻿namespace GoldenRaspberryAPI.Model
+﻿using System.Collections.Generic;
+
+namespace GoldenRaspberryAPI.Model
 {
     public class Movie
     {

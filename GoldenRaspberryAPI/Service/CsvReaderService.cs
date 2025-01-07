@@ -2,6 +2,7 @@
 using CsvHelper.Configuration;
 using GoldenRaspberryAPI.Data;
 using GoldenRaspberryAPI.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -30,6 +31,7 @@ namespace GoldenRaspberryAPI.Service
                 csv.Context.RegisterClassMap<MovieMap>(); // Registrar o mapeamento
 
                 return csv.GetRecords<Movie>().ToList();
+
             }
             catch (Exception ex)
             {

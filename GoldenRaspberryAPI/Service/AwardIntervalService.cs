@@ -1,5 +1,6 @@
 ﻿using GoldenRaspberryAPI.Data;
 using GoldenRaspberryAPI.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,36 +20,46 @@ namespace GoldenRaspberryAPI.Service
         {
             try
             {
-                var producers = _context.Movies
-                .Where(p => p.Winner)
-                .AsEnumerable()
-                .GroupBy(g => g.Producers)
-                .Select(s => new
-                {
-                    Producer = s.Key,
-                    Wins = s.OrderBy(m => m.Year).ToList()
-                })
-                .Where(s => s.Wins.Count > 1)
-                .ToList();
+                var producersWithIntervals = _context.Movies
+                    .Where(m => m.Winner)
+                    .ToList()
+                    .SelectMany(m => m.Producers
+                        .Split(new[] { ",", "and" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(producer => new { Producer = producer.Trim(), Movie = m }))
+                    .GroupBy(pm => pm.Producer)
+                    .Select(g => new
+                    {
+                        Producer = g.Key,
+                        Intervals = g.Select(x => x.Movie.Year)
+                            .OrderBy(year => year)
+                            .Zip(g.Select(x => x.Movie.Year).OrderBy(year => year).Skip(1), (prev, next) => new 
+                            {
+                                Interval = next - prev,
+                                PreviousWin = prev,
+                                FollowingWin = next
+                            }).ToList()
+                    }).ToList();
 
-                var intervals = producers.SelectMany(p => p.Wins.Zip(p.Wins.Skip(1), (prev, next) => new ProducerAward
-                {
-                    Producer = p.Producer,
-                    Interval = next.Year - prev.Year,
-                    PreviousWin = prev.Year,
-                    FollowingWin = next.Year
-                })).ToList();
+                var intervals = producersWithIntervals
+                    .SelectMany(p => p.Intervals, (p, i) => new ProducerAward
+                    {
+                        Producer = p.Producer,
+                        Interval = i.Interval,
+                        PreviousWin = i.PreviousWin,
+                        FollowingWin = i.FollowingWin
+                    })
+                    .ToList();
 
                 int bigger = intervals.Max(i => i.Interval);
                 int smaller = intervals.Min(i => i.Interval);
-
+                
                 AwardIntervalsResponse response = new AwardIntervalsResponse();
                 response.Min = new List<ProducerAward>();
                 response.Max = new List<ProducerAward>();
 
                 response.Min.AddRange(intervals.OrderBy(i => i.Interval).Where(w => w.Interval == smaller));
                 response.Max.AddRange(intervals.OrderByDescending(i => i.Interval).Where(w => w.Interval == bigger));
-
+                
                 return response;
             }
             catch (Exception ex)
@@ -62,7 +73,7 @@ namespace GoldenRaspberryAPI.Service
             try
             {
                 var movies = new List<Movie>();
-                var allMovies = _context.Movies;
+                var allMovies = _context.Movies.ToList();
                 foreach (var movie in allMovies)
                 {
                     movies.Add(new Movie

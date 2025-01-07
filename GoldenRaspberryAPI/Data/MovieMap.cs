@@ -1,5 +1,7 @@
 ﻿using CsvHelper.Configuration;
 using GoldenRaspberryAPI.Model;
+using System;
+using System.Linq;
 
 namespace GoldenRaspberryAPI.Data
 {
