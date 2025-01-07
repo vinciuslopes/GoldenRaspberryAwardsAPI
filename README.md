@@ -18,7 +18,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/viniciuslopes/GoldenRaspberryAPI.git
+   git clone https://github.com/viniciusEduaroLopes/GoldenRaspberryAwardsAPI.git
    cd GoldenRaspberryAPI
 
 2. Instale as dependências do projeto:
@@ -60,6 +60,12 @@ Exemplo de Resposta:
          "interval": 1,
          "previousWin": 2000,
          "followingWin": 2001
+      },
+      {
+         "producer": "Producer C",
+         "interval": 2,
+         "previousWin": 2002,
+         "followingWin": 2004
       }
    ],
    "max": [
@@ -68,6 +74,12 @@ Exemplo de Resposta:
          "interval": 10,
          "previousWin": 1990,
          "followingWin": 2000
+      }
+      {
+         "producer": "Producer D",
+         "interval": 12,
+         "previousWin": 1990,
+         "followingWin": 2002
       }
    ]
 }
@@ -88,13 +100,15 @@ Exemplo de Resposta:
 ### Estrutura do Projeto
 
 ```plaintext
-GoldenRaspberryAPI/
-├── Controllers/               # Controladores da API
-├── Data/                      # Banco de dados em memória
-├── Model/                     # Modelos utilizados no projeto
-├── Services/                  # Lógica de negócio
-├── Tests/                     # Testes de integração
-├── Resources/movielist.csv    # Arquivo CSV com os dados
+GoldenRaspberryAwardsAPI/
+   └── GoldenRaspberryAPI/
+      ├── Controllers/               # Controladores da API
+      ├── Data/                      # Banco de dados em memória
+      ├── Model/                     # Modelos utilizados no projeto
+      ├── Resources/movielist.csv    # Arquivo CSV com os dados
+      ├── Services/                  # Lógica de negócio
+   └── GoldenRaspberryAwardsTests/
+      ├── Resources/movielist.csv    # Arquivo CSV com os dados
 └── README.md                  # Instruções do projeto
 ```
 ---
